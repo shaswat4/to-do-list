@@ -14,11 +14,16 @@
         <% for( let index = 1; index <= 3; index++ ) { %>
             <li> item <%= index %> </li>
         <% } %>
+        
+        <% for( let index = 0; index < list_items.length; index++ ) { %>
+            <li> <%= list_items[index]  %>  </li>
+        <% } %>
+
     </ul>
 
     <form action="\" method="post">
         <input type="text" name="newItem" placeholder="New item">
-        <button type="submit"> Submit </button>
+        <button type="submit"> Add </button>
     </form>
   
     </body>

@@ -7,12 +7,13 @@ const app = express();
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended:true}));
 
+var items = [];
 
 app.get( '/', function (req , res){
 
     var day = getDay();
     
-    res.render( 'list' , {day_var : day } );
+    res.render( 'list' , {day_var : day , list_items : items  } );
 
 });
 
@@ -23,7 +24,9 @@ app.listen(3000 , function (){
 app.post( '/' , function (req , res){
 
     var txt = req.body.newItem ;
-    console.log(txt);
+    
+    items.push(txt);
+    logs(items);
     res.redirect('/');
 });
 
@@ -40,7 +43,11 @@ function getDay() {
     };
 
     var temp = d.toLocaleDateString("en-US" , options);
-    console.log(temp);
+    //console.log(temp);
 
     return temp;
+}
+
+function logs(args) {
+    console.log(args);
 }
