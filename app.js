@@ -12,7 +12,7 @@ app.get( '/', function (req , res){
     const d = new Date();
     let day = weekday[d.getDay()];
 
-    res.render( 'lists' , {day_var : day } );
+    res.render( 'list' , {day_var : day } );
 
 });
 
