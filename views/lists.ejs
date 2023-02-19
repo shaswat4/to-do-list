@@ -7,9 +7,12 @@
     <title> To do list </title>
 </head>
 <body>
-    
-    <h1>Today is <%= day_var %> </h1>
 
+<%    if ( day_var === "Saturday" || day_var === "Sunday"){     %>
+        <h1 style="color: blue ;">Today is <%= day_var %> </h1>
+<%  } else { %>
+        <h1 style="color: purple;">Today is <%= day_var %> </h1>
+<%    } %>
 
 </body>
 </html>
