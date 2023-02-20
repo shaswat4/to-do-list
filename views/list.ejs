@@ -4,27 +4,33 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css\styles.css">
     <title>To do list</title>
   </head>
   <body>
 
-    <h1 > <%= day_var %></h1>
+    <div class="box" id="heading">
+        <h1 > <%= day_var %></h1>
+    </div>
+    
+    <div class="box">
 
-    <ul>
-        <% for( let index = 1; index <= 3; index++ ) { %>
-            <li> item <%= index %> </li>
-        <% } %>
-        
         <% for( let index = 0; index < list_items.length; index++ ) { %>
-            <li> <%= list_items[index]  %>  </li>
+
+            <div class="item">
+                <input type="checkbox">
+                <p><%= list_items[index]  %></p>
+            </div>
         <% } %>
 
-    </ul>
+        <form class="item" action="\" method="post">
+            <input type="text" name="newItem" placeholder="New item" autocomplete="off">
+            <button type="submit">+</button>
+        </form>
+    </div>
 
-    <form action="\" method="post">
-        <input type="text" name="newItem" placeholder="New item">
-        <button type="submit"> Add </button>
-    </form>
+
+
   
     </body>
 </html>
