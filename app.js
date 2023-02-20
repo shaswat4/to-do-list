@@ -11,7 +11,7 @@ var items = [];
 
 app.get( '/', function (req , res){
 
-    var day = getDay();
+    let day = getDay();
     
     res.render( 'list' , {day_var : day , list_items : items  } );
 
@@ -23,7 +23,7 @@ app.listen(3000 , function (){
 
 app.post( '/' , function (req , res){
 
-    var txt = req.body.newItem ;
+    let txt = req.body.newItem ;
     
     items.push(txt);
     logs(items);
@@ -36,13 +36,13 @@ function getDay() {
     const d = new Date();
     //let day = weekday[d.getDay()];
 
-    var options = {
+    let options = {
         weekday : "long",
         day : "numeric" , 
         month : "long"
     };
 
-    var temp = d.toLocaleDateString("en-US" , options);
+    let temp = d.toLocaleDateString("en-US" , options);
     //console.log(temp);
 
     return temp;
