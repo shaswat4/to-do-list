@@ -10,12 +10,13 @@ app.use( express.static("public"));
 
 
 var items = [];
+var workItems = [];
 
 app.get( '/', function (req , res){
 
     let day = getDay();
     
-    res.render( 'list' , {day_var : day , list_items : items  } );
+    res.render( 'list' , {listTitle : day , list_items : items  } );
 
 });
 
@@ -31,6 +32,21 @@ app.post( '/' , function (req , res){
     logs(items);
     res.redirect('/');
 });
+
+app.get( '/work' , function (req , res) {
+    
+    res.render( 'list' , {listTitle : "Work List" , list_items : workItems } );
+} );
+
+app.post( '/work' , function (req , res) {
+    
+    let temp = req.body.newItem;
+    workItems.push(temp);
+
+    res.redirect('/work');
+
+});
+
 
 function getDay() {
     
