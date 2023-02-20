@@ -27,10 +27,21 @@ app.listen(3000 , function (){
 app.post( '/' , function (req , res){
 
     let txt = req.body.newItem ;
+
+    logs( req.body );
+
+    if ( req.body.list === "Work List"){
+        workItems.push(txt);
+        res.redirect('/work');
+
+    } else{
+
+        items.push(txt);
+        logs(items);
+        res.redirect('/');
+    }
     
-    items.push(txt);
-    logs(items);
-    res.redirect('/');
+    
 });
 
 app.get( '/work' , function (req , res) {
